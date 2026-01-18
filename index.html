@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galiyara - Digital Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #F5F1E8;
+            --secondary-bg: #FFFFFF;
+            --accent-color: #D2691E;
+            --accent-light: #E89E6C;
+            --text-primary: #3A3A3A;
+            --text-secondary: #6B6B6B;
+            --gray-light: #E5E5E5;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Offer Banner */
+        .offer-banner {
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer-banner-content {
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Header */
+        .header {
+            background: var(--secondary-bg);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(210, 105, 30, 0.1), rgba(232, 158, 108, 0.1));
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Quick Info Bar */
+        .quick-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--secondary-bg);
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            background: var(--primary-bg);
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px var(--shadow);
+        }
+
+        .info-item .icon {
+            font-size: 20px;
+        }
+
+        .wifi-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .wifi-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--accent-color);
+            margin: 30px 0 20px;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 30px;
+        }
+
+        /* Shop Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .shop-card {
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px var(--shadow);
+            border: 2px solid transparent;
+        }
+
+        .shop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(210, 105, 30, 0.2);
+            border-color: var(--accent-light);
+        }
+
+        .shop-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .shop-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .shop-category {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        .view-menu-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-menu-btn:hover {
+            background: var(--accent-light);
+        }
+
+        /* Menu Viewer Page */
+        .menu-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-bg);
+            z-index: 1000;
+            overflow: auto;
+        }
+
+        .menu-viewer.active {
+            display: block;
+        }
+
+        .menu-header {
+            background: var(--secondary-bg);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .back-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--accent-light);
+        }
+
+        .menu-shop-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .pdf-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow);
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 800px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .pdf-placeholder {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .pdf-placeholder .icon {
+            font-size: 80px;
+            color: var(--accent-light);
+            margin-bottom: 20px;
+        }
+
+        .pdf-placeholder h3 {
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .pdf-placeholder p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-light);
+        }
+
+        .review-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: none;
+            margin-left: 10px;
+        }
+
+        .review-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--gray-light);
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            padding-right: 30px;
+        }
+
+        .wifi-list {
+            display: grid;
+            gap: 15px;
+        }
+
+        .wifi-card {
+            background: var(--primary-bg);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .wifi-shop-name {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .wifi-details {
+            display: grid;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .wifi-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wifi-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            min-width: 80px;
+        }
+
+        .wifi-value {
+            color: var(--text-primary);
+            font-family: monospace;
+            background: var(--secondary-bg);
+            padding: 4px 8px;
+            border-radius: 4px;
+            flex: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-bg);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 -2px 10px var(--shadow);
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-info {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid var(--gray-light);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 26px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .shop-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .quick-info {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .info-item {
+                justify-content: center;
+            }
+
+            .pdf-viewer {
+                height: 600px;
+            }
+
+            .menu-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .menu-header > div {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .menu-header .download-btn,
+            .menu-header .review-btn {
+                width: 100%;
+                margin: 5px 0 !important;
+            }
+
+            .modal-content {
+                padding: 20px;
+            }
+
+            .offer-banner-content {
+                animation: scroll 15s linear infinite;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+
+            .shop-card {
+                padding: 20px;
+            }
+
+            .shop-icon {
+                font-size: 40px;
+            }
+
+            .pdf-viewer {
+                height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Offer Banner -->
+    <div class="offer-banner">
+        <div class="offer-banner-content">
+            🎉 Welcome to Galiyara Food Court! Enjoy delicious food from 9 amazing outlets | Open Daily 10 AM - 11 PM 🎉
+        </div>
+    </div>
+
+    <!-- Main Home Page -->
+    <div id="homePage">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">GALIYARA</div>
+            <div class="tagline">Your Destination for Delicious Delights</div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <h2>Welcome to Galiyara Food Court</h2>
+            <p>Discover a world of flavors under one roof. From crispy burgers to refreshing beverages, we have it all. Scan, browse, and savor!</p>
+        </div>
+
+        <!-- Quick Info Bar -->
+        <div class="quick-info">
+            <div class="info-item">
+                <span class="icon">🕐</span>
+                <span>10 AM - 11 PM</span>
+            </div>
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <span>Patarkar Colony, Jaipur</span>
+            </div>
+            <button class="wifi-btn" onclick="openWifiModal()">
+                <span>📶 WiFi Info</span>
+            </button>
+        </div>
+
+        <!-- Shop Section -->
+        <div class="container">
+            <h2 class="section-title">Our Food Outlets</h2>
+            <p class="section-subtitle">Tap on any outlet to view their complete menu</p>
+
+            <div class="shop-grid">
+                <!-- Shop 1 -->
+                <div class="shop-card" onclick="openMenu('Burger Hub', '🍔', 'menus/burgers-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_1/review')">
+                    <div class="shop-icon">🍔</div>
+                    <div class="shop-name">Burger Hub</div>
+                    <div class="shop-category">Burgers & Sandwiches</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 2 -->
+                <div class="shop-card" onclick="openMenu('Chai & Snacks Corner', '☕', 'menus/chai-snacks-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_2/review')">
+                    <div class="shop-icon">☕</div>
+                    <div class="shop-name">Chai & Snacks Corner</div>
+                    <div class="shop-category">Tea, Coffee & Snacks</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 3 -->
+                <div class="shop-card" onclick="openMenu('Juice Junction', '🥤', 'menus/juice-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_3/review')">
+                    <div class="shop-icon">🥤</div>
+                    <div class="shop-name">Juice Junction</div>
+                    <div class="shop-category">Fresh Juices & Shakes</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 4 -->
+                <div class="shop-card" onclick="openMenu('Pizza Palace', '🍕', 'menus/pizza-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_4/review')">
+                    <div class="shop-icon">🍕</div>
+                    <div class="shop-name">Pizza Palace</div>
+                    <div class="shop-category">Pizzas & Pasta</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 5 -->
+                <div class="shop-card" onclick="openMenu('Rolls & Wraps', '🌯', 'menus/rolls-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_5/review')">
+                    <div class="shop-icon">🌯</div>
+                    <div class="shop-name">Rolls & Wraps</div>
+                    <div class="shop-category">Rolls, Wraps & Shawarma</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 6 -->
+                <div class="shop-card" onclick="openMenu('Ice Cream Factory', '🍦', 'menus/icecream-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_6/review')">
+                    <div class="shop-icon">🍦</div>
+                    <div class="shop-name">Ice Cream Factory</div>
+                    <div class="shop-category">Ice Creams & Desserts</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 7 -->
+                <div class="shop-card" onclick="openMenu('Sandwich Station', '🥪', 'menus/sandwich-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_7/review')">
+                    <div class="shop-icon">🥪</div>
+                    <div class="shop-name">Sandwich Station</div>
+                    <div class="shop-category">Grilled Sandwiches</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 8 -->
+                <div class="shop-card" onclick="openMenu('Chinese Wok', '🥡', 'menus/chinese-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_8/review')">
+                    <div class="shop-icon">🥡</div>
+                    <div class="shop-name">Chinese Wok</div>
+                    <div class="shop-category">Chinese & Indo-Chinese</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+
+                <!-- Shop 9 -->
+                <div class="shop-card" onclick="openMenu('South Indian Express', '🥘', 'menus/southindian-menu.pdf', 'https://g.page/r/YOUR_PLACE_ID_9/review')">
+                    <div class="shop-icon">🥘</div>
+                    <div class="shop-name">South Indian Express</div>
+                    <div class="shop-category">Dosa, Idli & More</div>
+                    <button class="view-menu-btn">View Menu</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <div class="footer-title">Galiyara Food Court</div>
+                <div class="footer-info">
+                    📍 Patarkar Colony, Jaipur, Rajasthan<br>
+                    🕐 Open Daily: 10:00 AM - 11:00 PM<br>
+                    Made with ❤️ for food lovers
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Viewer Page -->
+    <div id="menuViewer" class="menu-viewer">
+        <div class="menu-header">
+            <button class="back-btn" onclick="closeMenu()">
+                <span>←</span>
+                <span>Back</span>
+            </button>
+            <div class="menu-shop-name" id="currentShopName"></div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button class="download-btn" id="downloadBtn" style="display: none; margin: 0;">
+                    Download Menu
+                </button>
+                <button class="review-btn" id="reviewBtn" style="display: none; margin: 0;">
+                    ⭐ Leave Review
+                </button>
+            </div>
+        </div>
+
+        <div class="pdf-container">
+            <div id="loadingSpinner" class="loading">
+                <div class="spinner"></div>
+                <p>Loading menu...</p>
+            </div>
+
+            <div id="pdfPlaceholder" class="pdf-placeholder">
+                <div class="icon">📄</div>
+                <h3>Menu Coming Soon</h3>
+                <p>The PDF menu for this outlet will be available shortly.</p>
+                <p style="font-size: 13px; color: var(--text-secondary); margin-top: 10px;">
+                    In the meantime, please visit the outlet or ask our staff for assistance.
+                </p>
+            </div>
+
+            <iframe id="pdfViewer" class="pdf-viewer" style="display: none;"></iframe>
+        </div>
+    </div>
+
+    <!-- WiFi Modal -->
+    <div id="wifiModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeWifiModal()">×</button>
+            <h2 class="modal-title">📶 WiFi Information</h2>
+            
+            <div class="wifi-list">
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🍔 Burger Hub</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">BurgerHub_WiFi</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">burger@2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">☕ Chai & Snacks Corner</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">ChaiCorner_Free</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">chai1234</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🥤 Juice Junction</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">JuiceJunction</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">fresh@juice</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🍕 Pizza Palace</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">PizzaPalace_WiFi</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">pizza2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🌯 Rolls & Wraps</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">RollsWrap_Guest</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">wraps@123</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🍦 Ice Cream Factory</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">IceCream_Free</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">icecream99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🥪 Sandwich Station</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">SandwichStation</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">sandwich@24</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🥡 Chinese Wok</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">ChineseWok_WiFi</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">wok12345</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wifi-card">
+                    <div class="wifi-shop-name">🥘 South Indian Express</div>
+                    <div class="wifi-details">
+                        <div class="wifi-row">
+                            <span class="wifi-label">Network:</span>
+                            <span class="wifi-value">SouthIndian_Guest</span>
+                        </div>
+                        <div class="wifi-row">
+                            <span class="wifi-label">Password:</span>
+                            <span class="wifi-value">dosa@2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPdfUrl = '';
+        let currentShopReviewUrl = '';
+        let lastScrollPosition = 0;
+
+        // Open menu viewer
+        function openMenu(shopName, icon, pdfFile, reviewUrl) {
+            const menuViewer = document.getElementById('menuViewer');
+            const homePage = document.getElementById('homePage');
+            const currentShopName = document.getElementById('currentShopName');
+            const pdfViewer = document.getElementById('pdfViewer');
+            const pdfPlaceholder = document.getElementById('pdfPlaceholder');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const reviewBtn = document.getElementById('reviewBtn');
+
+            // Save current scroll position
+            lastScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Update shop name
+            currentShopName.innerHTML = icon + ' ' + shopName;
+            
+            // Hide home page, show menu viewer
+            homePage.style.display = 'none';
+            menuViewer.classList.add('active');
+
+            // Reset states
+            pdfViewer.style.display = 'none';
+            pdfPlaceholder.style.display = 'block';
+            loadingSpinner.style.display = 'none';
+            downloadBtn.style.display = 'none';
+
+            // Store current PDF URL and review URL
+            currentPdfUrl = pdfFile;
+            currentShopReviewUrl = reviewUrl;
+
+            // Show review button
+            reviewBtn.style.display = 'block';
+            reviewBtn.onclick = function() {
+                window.open(reviewUrl, '_blank');
+            };
+
+            // Try to load PDF
+            loadingSpinner.classList.add('active');
+            pdfPlaceholder.style.display = 'none';
+            
+            // Attempt to load PDF
+            fetch(pdfFile)
+                .then(response => {
+                    if (response.ok) {
+                        pdfViewer.src = pdfFile;
+                        pdfViewer.style.display = 'block';
+                        loadingSpinner.classList.remove('active');
+                        downloadBtn.style.display = 'block';
+                    } else {
+                        throw new Error('PDF not found');
+                    }
+                })
+                .catch(() => {
+                    // PDF doesn't exist, show placeholder
+                    loadingSpinner.classList.remove('active');
+                    pdfPlaceholder.style.display = 'block';
+                });
+
+            // Scroll to top of menu viewer
+            window.scrollTo(0, 0);
+        }
+
+        // Close menu viewer
+        function closeMenu() {
+            const menuViewer = document.getElementById('menuViewer');
+            const homePage = document.getElementById('homePage');
+            
+            menuViewer.classList.remove('active');
+            homePage.style.display = 'block';
+            
+            // Reset PDF viewer
+            document.getElementById('pdfViewer').src = '';
+
+            // Restore scroll position after a small delay to ensure page is rendered
+            setTimeout(() => {
+                window.scrollTo(0, lastScrollPosition);
+            }, 10);
+        }
+
+        // Download PDF
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            if (currentPdfUrl) {
+                const link = document.createElement('a');
+                link.href = currentPdfUrl;
+                link.download = currentPdfUrl;
+                link.click();
+            }
+        });
+
+        // Open WiFi Modal
+        function openWifiModal() {
+            document.getElementById('wifiModal').classList.add('active');
+        }
+
+        // Close WiFi Modal
+        function closeWifiModal() {
+            document.getElementById('wifiModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('wifiModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeWifiModal();
+            }
+        });
+
+        // Prevent scrolling when modal is open
+        document.getElementById('wifiModal').addEventListener('mouseenter', function() {
+            document.body.style.overflow = 'hidden';
+        });
+
+        document.getElementById('wifiModal').addEventListener('mouseleave', function() {
+            document.body.style.overflow = 'auto';
+        });
+    </script>
+</body>
+</html>
